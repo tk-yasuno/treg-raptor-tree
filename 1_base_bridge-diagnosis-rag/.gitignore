@@ -1,0 +1,75 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+Pipfile.lock
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Logs
+*.log
+build_*.log
+*.txt
+!requirements.txt
+
+# Large files
+*.pkl
+*.bin
+*.h5
+*.pt
+*.pth
+
+# Cache
+*.cache
+.cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+data/*/results/*.png
+data/*/results/*.json
+data/*/results/*.pkl
+data/*/results/*.txt
+!data/*/results/.gitkeep
+
+# Keep structure
+!data/
+!data/doken_bridge_diagnosis_logic/
+!data/doken_bridge_diagnosis_logic/images/
+!data/doken_bridge_diagnosis_logic/results/

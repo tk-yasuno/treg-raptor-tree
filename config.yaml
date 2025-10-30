@@ -1,0 +1,100 @@
+# True RAPTOR Configuration File
+
+# GPU設定
+GPU_SETTINGS:
+  enable_gpu: true
+  device: "cuda"  # または "cpu"
+  memory_fraction: 0.8  # GPU メモリの使用割合
+  optimize_memory: true
+
+# モデル設定
+MODEL_SETTINGS:
+  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+  
+  # GPU容量別LLM選択
+  llm_selection:
+    24gb_plus: "facebook/opt-6.7b"
+    16gb_plus: "facebook/opt-2.7b"
+    12gb_plus: "facebook/opt-1.3b"
+    8gb_plus: "microsoft/DialoGPT-large"
+    default: "microsoft/DialoGPT-medium"
+  
+  # モデル最適化
+  use_float16: true
+  use_device_map: true
+  low_cpu_mem_usage: true
+
+# クラスタリング設定
+CLUSTERING_SETTINGS:
+  algorithm: "kmeans"
+  min_cluster_size: 3
+  max_cluster_size: 30
+  max_levels: 4
+  
+  # シルエット分析
+  silhouette_analysis: true
+  min_silhouette_score: 0.2
+  
+  # 最適化
+  kmeans_init: "k-means++"
+  n_init: 10
+  random_state: 42
+
+# バッチ処理設定
+BATCH_SETTINGS:
+  embedding_batch_size: 8
+  max_sequence_length: 512
+  processing_timeout: 300
+
+# 出力設定
+OUTPUT_SETTINGS:
+  save_directory: "data/immune_cell_differentiation"
+  
+  # ファイル形式
+  tree_format: "json"
+  enable_visualization: true
+  
+  # 可視化設定
+  visualization:
+    tree_plot: true
+    statistics_plot: true
+    save_format: "png"
+    dpi: 300
+
+# ログ設定
+LOGGING_SETTINGS:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  save_logs: true
+  log_directory: "logs"
+  
+  # 詳細ログ
+  gpu_memory_tracking: true
+  performance_monitoring: true
+
+# 高速化設定
+OPTIMIZATION_SETTINGS:
+  # Hugging Face最適化
+  hf_transfer: true
+  transformers_cache: true
+  
+  # 並列処理
+  enable_multiprocessing: false
+  num_workers: 4
+  
+  # キャッシュ
+  enable_cache: true
+  cache_directory: ".cache"
+
+# 実験設定
+EXPERIMENT_SETTINGS:
+  # A/Bテスト
+  enable_comparison: true
+  baseline_nodes: 5
+  
+  # ベンチマーク
+  run_benchmarks: true
+  measure_improvement: true
+  
+  # データセット
+  sample_documents: 35
+  document_domain: "immune_cell_research"
